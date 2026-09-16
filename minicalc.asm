@@ -12,16 +12,16 @@ section .data
 section .text
     _start:
         ; Definindo numeros
-        mov eax, 12
+        mov eax, -8
         mov ebx, 10
 
         ; Comparando
         cmp eax, ebx
-        ja maior
+        jg maior
         je igual
-        jb menor
+        jl menor
 
-        ; Retorna zero
+        ; Encerra o processo com status zero
         mov rax, 60
         mov rdi, 0
         syscall
@@ -34,7 +34,7 @@ section .text
         mov rdx, maiorMsgLen
         syscall
 
-        ; Retorna zero
+        ; Encerra o processo com status zero
         mov rax, 60
         mov rdi, 0
         syscall
@@ -47,7 +47,7 @@ section .text
         mov rdx, igualMsgLen
         syscall
 
-        ; Retorna zero
+        ; Encerra o processo com status zero
         mov rax, 60
         mov rdi, 0
         syscall
@@ -60,7 +60,7 @@ section .text
         mov rdx, menorMsgLen
         syscall
 
-        ; Retorna zero
+        ; Encerra o processo com status zero
         mov rax, 60
         mov rdi, 0
         syscall

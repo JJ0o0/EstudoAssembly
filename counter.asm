@@ -17,7 +17,7 @@ section .text
         add eax, 48
 
         ; Guarda o numero na memória
-        mov [numero], al
+        mov [rel numero], al
         mov byte [numero + 1], 10
 
         ; Write

@@ -1,6 +1,7 @@
 global _start
 
 section .bss
+    ; Reservando 2 bytes para o numero (numero + \n)
     numero resb 2
 
 section .text

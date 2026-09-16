@@ -1,0 +1,1 @@
+Esse código só funciona no Linux com um processador x86_64.

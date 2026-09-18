@@ -2,11 +2,31 @@ global _start
 
 section .text
     _start:
+        sub rsp, 80
 
+        mov qword [rsp], 10
+        mov qword [rsp + 8], 20
+        mov qword [rsp + 16], 30
+        mov qword [rsp + 24], 40
+        mov qword [rsp + 32], 50
+
+        mov qword [rsp + 40], 60
+        mov qword [rsp + 48], 70
+        mov qword [rsp + 56], 80
+        mov qword [rsp + 64], 90
+        mov qword [rsp + 72], 100
+
+        lea rsi, [rsp]
+        lea rdi, [rsp + 40]
+        mov rdx, 40
+        call mover
+
+        mov rax, [rsp + 40]
+        add rsp, 80
 
         ; Return 0
+        mov rdi, rax
         mov rax, 60
-        mov rdi, 0
         syscall
     
     ; escrever(long*, long)
@@ -133,8 +153,8 @@ section .text
         je nao_sobrepoe
 
         cmp rdi, rsi
-        jl nao_sobrepoe
-        jg destino_maior
+        jb nao_sobrepoe
+        ja destino_maior
 
         ret
 
